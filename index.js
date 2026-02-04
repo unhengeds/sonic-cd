@@ -26,6 +26,13 @@ var Module = typeof Module != 'undefined' ? Module : {};
     Module.expectedDataFileDownloads = 0;
   }
 
+Module.locateFile = function (path) {
+  if (path.endsWith(".data")) {
+    return "https://github.com/unhengeds/sonic-cd/releases/download/v1.0/index.data";
+  }
+  return path;
+};
+
   Module.expectedDataFileDownloads++;
   (function() {
     // When running as a pthread, FS operations are proxied to the main thread, so we don't need to
